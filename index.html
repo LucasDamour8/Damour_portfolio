@@ -1,216 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Damour - Portfolio</title>
-  <style>
-    /* General Styles */
-    body {
-      font-family: 'Montserrat', Arial, sans-serif;
-      margin-top: 70px;
-      background-color: #000;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* Header Styles */
-    header {
-      width: 100%;
-      background-color: #1c1c1c;
-      padding: 20px 0;
-      display: flex;
-      justify-content: center;
-    }
-
-    header a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      margin: 0 10px;
-      transition: background-color 0.3s ease;
-    }
-
-    header a:hover {
-      background-color: #6A5ACD;
-    }
-
-    /* Main Content Styles */
-    main {
-      width: 80%;
-      display: flex;
-      align-items: center;
-      padding: 60px 0;
-    }
-
-    .profile-image {
-      width: 500px;
-      height: 550px;
-      border-radius: 10%;
-      background-image: url('damour.jpg');
-      background-size: cover;
-      background-position: center;
-      margin-left: 100px;
-    }
-
-    .profile-info {
-      text-align: center;
-      max-width: 700px;
-    }
-
-    .profile-info h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-
-    .profile-info p {
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 30px;
-    }
-
-    .profile-info a {
-      display: inline-block;
-      background-color: #4B0082;
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 5px;
-      margin: 0 10px;
-      transition: background-color 0.3s ease;
-    }
-
-    .profile-info a:hover {
-      background-color: #6A5ACD;
-    }
-
-    /* Footer Styles */
-    footer {
-      width: 100%;
-      background-color: #1c1c1c;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 1200px) {
-      main {
-        width: 90%;
-      }
-
-      .profile-image {
-        width: 400px;
-        height: 500px;
-        margin-left: 50px;
-      }
-
-      .profile-info {
-        max-width: 600px;
-      }
-
-      .profile-info h1 {
-        font-size: 42px;
-      }
-
-      .profile-info p {
-        font-size: 16px;
-      }
-    }
-
-    @media (max-width: 1024px) {
-      main {
-        flex-direction: column;
-        padding: 40px 0;
-      }
-
-      .profile-image {
-        width: 300px;
-        height: 400px;
-        margin-left: 0;
-        margin-top: 40px;
-      }
-
-      .profile-info {
-        max-width: 700px;
-      }
-
-      .profile-info a {
-        display: block;
-        margin: 10px 0;
-      }
-    }
-
-    @media (max-width: 768px) {
-      header {
-        padding: 10px 0;
-      }
-
-      header a {
-        padding: 8px 16px;
-        margin: 5px 10px;
-      }
-
-      main {
-        width: 100%;
-      }
-
-      .profile-info {
-        max-width: 90%;
-      }
-
-      .profile-info h1 {
-        font-size: 36px;
-      }
-
-      .profile-info p {
-        font-size: 16px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .profile-image {
-        width: 100%;
-        height: 300px;
-      }
-
-      .profile-info a {
-        display: block;
-        margin: 10px 0;
-      }
-    }
-  </style>
+<!DOCTYPE html><!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Portfolio</title>
+<style>
+body{margin:0;font-family:Montserrat,Arial;background:#0b0018;color:#fff}
+header{position:fixed;top:0;width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.2);backdrop-filter:blur(6px);z-index:20}
+header .email{display:flex;align-items:center;gap:10px}
+nav a{color:#fff;text-decoration:none;margin:0 15px;font-size:18px;position:relative;transition:.3s}
+nav a:hover{color:#ff44ff}
+nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:#ff44ff;transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+nav a:hover::after{transform:scaleX(1)}
+nav a:last-child{background:#b043ff;padding:10px 20px;border-radius:20px;color:#fff}
+main{padding-top:150px;display:flex;justify-content:center;flex-wrap:wrap;gap:80px}
+.left{max-width:420px}
+.left h1{font-size:32px;margin:0}
+.left p{font-size:17px;line-height:1.5}
+.btn{display:inline-block;margin-top:20px;border:2px solid #b043ff;padding:10px 25px;border-radius:25px}
+.icons{margin-top:25px;display:flex;gap:15px}
+.icons svg{width:28px;height:28px;stroke:#fff}
+.frame{border:3px solid #b043ff;padding:12px;border-radius:20px;transform:rotate(8deg);box-shadow:0 0 20px #b043ff80,0 0 40px #b043ff40;transition:.3s}
+.frame:hover{box-shadow:0 0 30px #b043ffb0,0 0 60px #b043ff70}
+.frame img{width:330px;border-radius:18px}
+.stats{width:100%;display:flex;justify-content:center;gap:60px;margin:50px 0}
+.stats div{text-align:center}
+.stats h2{font-size:40px;margin:0}
+footer{text-align:center;padding:20px 0;margin-top:40px;background:#120024}
+@media(max-width:900px){
+main{flex-direction:column;align-items:center;gap:50px}
+.left{text-align:center}
+.frame img{width:260px}
+.stats{flex-wrap:wrap;gap:30px}
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Projects</a>
-    <a href="#">Skills</a>
-    <a href="#">Experience</a>
-    <a href="#">Blogs</a>
-    <a href="#">Testimonials</a>
-    <a href="#">Contacts</a>
-  </header>
+<header>
+<div class="email"><img src="icon.svg" width="26">nzimanadamour@gmail.com</div>
+<nav>
+<a href="#">Services</a><a href="#">Works</a><a href="#">Resume</a>
+<a href="#">Skills</a><a href="#">Testimonial</a><a href="#">Contact</a>
+<a href="#">Hire me!</a>
+</nav>
+</header>
 
-  <main>
-    <div class="profile-info" style="margin-left: 170px;">
-      <h1>Nzi. Damour</h1>
-      <p>As a passionate designer and developer, I have dedicated my career to creating visually stunning and functionally robust digital experiences. My portfolio website showcases a diverse range of projects, from sleek and modern web designs to innovative mobile applications, all of which reflect my unwavering commitment to excellence.</p>
-      <p>With a strong foundation in both design principles and coding, I seamlessly blend form and function to deliver solutions that not only captivate the eye but also provide a seamless and intuitive user experience. Whether it's crafting a responsive e-commerce platform, designing a captivating social media interface, or developing a cutting-edge web application, I approach every project with the same level of enthusiasm and attention to detail.</p>
-      <a href="#">Get started</a>
-      <a href="#">Discuss for Projects</a>
-    </div>
-    <div class="profile-image" style="background-image: url('damour.jpg');"></div>
-  </main>
+<main>
+<div class="left">
+<h1>I AM D'AMOUR</h1>
+<p>Web developer + UX Designer</p>
+<p>I break down complex user Experience problems to create Integrity focused solutions that connect billions of people</p>
+<a class="btn" href="#">Download CV</a>
 
-  <footer>
-    <p>&copy; 2023 Nzi. Damour. All rights reserved.</p>
-  </footer>
+<div class="icons">
+<svg fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+<svg fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 1 0-8 11 6 6 0 0 0 8-11z"/><path d="M12 8v4l3 3"/></svg>
+<svg fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>
+<svg fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 18a4 4 0 0 0-8 0"/><circle cx="12" cy="11" r="3"/><circle cx="12" cy="12" r="10"/></svg>
+</div>
+</div>
+
+<div class="frame"><img src="damour.jpg"></div>
+</main>
+
+<div class="stats">
+<div><h2>4</h2><p>Years<br>Experience</p></div>
+<div><h2>40</h2><p>Completed<br>Projects</p></div>
+<div><h2>1.4K</h2><p>Happy<br>Clients</p></div>
+<div><h2>12</h2><p>Proposals<br>Made</p></div>
+</div>
+
+<footer>© 2025 Nzi. D'Amour</footer>
 </body>
 </html>
+
 
