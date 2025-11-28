@@ -1,73 +1,972 @@
-<!DOCTYPE html><!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Portfolio</title>
-<style>
-body{margin:0;font-family:Montserrat,Arial;background:#0b0018;color:#fff}
-header{position:fixed;top:0;width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.2);backdrop-filter:blur(6px);z-index:20}
-header .email{display:flex;align-items:center;gap:10px}
-nav a{color:#fff;text-decoration:none;margin:0 15px;font-size:18px;position:relative;transition:.3s}
-nav a:hover{color:#ff44ff}
-nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:#ff44ff;transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
-nav a:hover::after{transform:scaleX(1)}
-nav a:last-child{background:#b043ff;padding:10px 20px;border-radius:20px;color:#fff}
-main{padding-top:150px;display:flex;justify-content:center;flex-wrap:wrap;gap:80px}
-.left{max-width:420px}
-.left h1{font-size:32px;margin:0}
-.left p{font-size:17px;line-height:1.5}
-.btn{display:inline-block;margin-top:20px;border:2px solid #b043ff;padding:10px 25px;border-radius:25px}
-.icons{margin-top:25px;display:flex;gap:15px}
-.icons svg{width:28px;height:28px;stroke:#fff}
-.frame{border:3px solid #b043ff;padding:12px;border-radius:20px;transform:rotate(8deg);box-shadow:0 0 20px #b043ff80,0 0 40px #b043ff40;transition:.3s}
-.frame:hover{box-shadow:0 0 30px #b043ffb0,0 0 60px #b043ff70}
-.frame img{width:330px;border-radius:18px}
-.stats{width:100%;display:flex;justify-content:center;gap:60px;margin:50px 0}
-.stats div{text-align:center}
-.stats h2{font-size:40px;margin:0}
-footer{text-align:center;padding:20px 0;margin-top:40px;background:#120024}
-@media(max-width:900px){
-main{flex-direction:column;align-items:center;gap:50px}
-.left{text-align:center}
-.frame img{width:260px}
-.stats{flex-wrap:wrap;gap:30px}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D'Amour - Web Developer + UX Designer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a1f 0%, #1a0a2e 50%, #2d1b4e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 500; }
+        .logo-icon {
+            width: 40px; height: 40px; background: #ffffff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold; color: #1a0a2e; font-size: 24px;
+        }
+        nav { display: flex; gap: 35px; align-items: center; }
+        nav a {
+            color: #ffffff; text-decoration: none; font-size: 16px;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #a855f7; }
+        .hire-btn {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            padding: 12px 30px; border-radius: 25px; color: #ffffff;
+            text-decoration: none; font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .hire-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(168,85,247,0.4); }
+        .hero {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+            align-items: center; margin-top: 60px; margin-bottom: 80px;
+        }
+        .hero-content h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; letter-spacing: 2px; }
+        .hero-content h2 { font-size: 24px; font-weight: 400; margin-bottom: 30px; color: #d1d5db; }
+        .hero-content p { font-size: 17px; line-height: 1.8; color: #e5e7eb; margin-bottom: 40px; }
+        .hero-actions { display: flex; align-items: center; gap: 30px; }
+        .download-btn {
+            background: transparent; border: 2px solid #a855f7; padding: 14px 35px;
+            border-radius: 30px; color: #ffffff; text-decoration: none;
+            font-weight: 600; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s;
+        }
+        .download-btn:hover {
+            background: #a855f7; transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(168,85,247,0.4);
+        }
+        .social-links { display: flex; gap: 15px; }
+        .social-links a {
+            width: 45px; height: 45px; border: 2px solid #4b5563; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #9ca3af; text-decoration: none; transition: all 0.3s;
+        }
+        .social-links a:hover {
+            border-color: #a855f7; color: #a855f7; transform: translateY(-3px);
+        }
+        .hero-image { position: relative; display: flex; justify-content: center; align-items: center; }
+        .image-frame {
+            position: relative; border: 3px solid #a855f7;
+            border-radius: 40px; padding: 20px;
+            background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(139,92,246,0.1));
+            transform: rotate(3deg); box-shadow: 0 20px 60px rgba(168,85,247,0.3);
+        }
+        .image-frame img { width: 400px; height: 500px; object-fit: cover; border-radius: 30px; display: block; }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 60px; }
+        .stat-item { text-align: left; }
+        .stat-number {
+            font-size: 72px; font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #a855f7);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; line-height: 1; margin-bottom: 5px;
+        }
+        .stat-label { font-size: 16px; color: #d1d5db; font-weight: 400; }
+        .cta-section { text-align: center; margin-top: 40px; }
+        .get-started-btn {
+            background: transparent; border: 2px solid #a855f7;
+            padding: 16px 50px; border-radius: 35px; color: #ffffff;
+            text-decoration: none; font-size: 20px; font-weight: 600;
+            display: inline-block; transition: all 0.3s;
+        }
+        .get-started-btn:hover {
+            background: #a855f7; transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(168,85,247,0.5);
+        }
+        @media (max-width:1024px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-actions { justify-content: center; }
+            .stats { grid-template-columns: repeat(2,1fr); }
+        }
+        @media (max-width:768px) {
+            nav { display: none; }
+            .hero-content h1 { font-size: 36px; }
+            .stat-number { font-size: 48px; }
+            .stats { grid-template-columns: 1fr; }
+            .image-frame img { width: 300px; height: 400px; }
+        }
+.services-section {
+  padding: 120px 0;
+  background-color: #000;
+  color: #fff;
 }
-</style>
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.service-item {
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.service-item:hover {
+  background-color: #8b5cf6;
+}
+
+.service-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.service-number {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.service-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.service-item:hover .service-title {
+  color: #000;
+}
+
+.service-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+
+.recent-works-section {
+  padding: 80px 0;
+  background-color: #000;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.tab-link {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ccc;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: color 0.3s ease;
+}
+
+.tab-link.active,
+.tab-link:hover {
+  color: #8b5cf6;
+}
+
+.works-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+}
+
+.work-item {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.work-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.work-info {
+  padding: 30px;
+}
+
+.work-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.work-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.detail {
+  background-color: #8b5cf6;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.work-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+
+.resume-section {
+  padding: 80px 0;
+  background-color: #000;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.experience-section,
+.education-section {
+  margin-bottom: 60px;
+}
+
+.experience-items,
+.education-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+}
+
+.experience-item,
+.education-item {
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.experience-item:hover,
+.education-item:hover {
+  background-color: #8b5cf6;
+}
+
+.experience-title,
+.education-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.experience-item:hover .experience-title,
+.education-item:hover .education-title {
+  color: #000;
+}
+
+.experience-company,
+.education-institution {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.experience-item:hover .experience-company,
+.education-item:hover .education-institution {
+  color: #000;
+}
+
+.experience-duration,
+.education-duration {
+  font-size: 14px;
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.experience-item:hover .experience-duration,
+.education-item:hover .education-duration {
+  color: #000;
+}
+
+
+.skills-section {
+  padding: 80px 0;
+  background-color: #000;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+}
+
+.skill-item {
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.skill-item:hover {
+  background-color: #8b5cf6;
+}
+
+.skill-icon {
+  margin-bottom: 20px;
+}
+
+.skill-icon img {
+  width: 60px;
+  height: 60px;
+}
+
+.skill-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.skill-item:hover .skill-name {
+  color: #000;
+}
+
+.skill-proficiency {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.skill-item:hover .skill-proficiency {
+  color: #000;
+}
+
+.blogs-section {
+  padding: 80px 0;
+  background-color: #000;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.blogs-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+}
+
+.blog-item {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.blog-item:hover {
+  background-color: #8b5cf6;
+}
+
+.blog-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.blog-info {
+  padding: 20px;
+}
+
+.blog-category {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8b5cf6;
+  margin-bottom: 10px;
+}
+
+.blog-date,
+.blog-comments {
+  font-size: 14px;
+  color: #ccc;
+  margin-right: 10px;
+}
+
+.blog-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.blog-item:hover .blog-title {
+  color: #000;
+}
+
+
+.contact-section {
+  padding: 80px 0;
+  background-color: #000;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-section {
+  padding: 80px 0;
+  background-color: #000;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  flex: 1;
+  background-color: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 16px;
+  color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+  border-color: #8b5cf6;
+}
+
+.form-textarea {
+  height: 150px;
+}
+
+.form-submit {
+  background-color: #8b5cf6;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-submit:hover {
+  background-color: #6b34c2;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.info-value {
+  font-size: 16px;
+}
+
+
+    </style>
 </head>
 
 <body>
-<header>
-<div class="email"><img src="icon.svg" width="26">nzimanadamour@gmail.com</div>
-<nav>
-<a href="#">Services</a><a href="#">Works</a><a href="#">Resume</a>
-<a href="#">Skills</a><a href="#">Testimonial</a><a href="#">Contact</a>
-<a href="#">Hire me!</a>
-</nav>
-</header>
+    <div class="container">
 
-<main>
-<div class="left">
-<h1>I AM D'AMOUR</h1>
-<p>Web developer + UX Designer</p>
-<p>I break down complex user Experience problems to create Integrity focused solutions that connect billions of people</p>
-<a class="btn" href="#">Download CV</a>
+        <!-- HEADER -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">G</div>
+                <span>nzimanadamour@gmail.com</span>
+            </div>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#works">works</a>
+                <a href="#resume">Resume</a>
+                <a href="#skills">Skills</a>
+                <a href="#testimonial">Testimonial</a>
+                <a href="#contact">Contact</a>
+                <a href="#hire" class="hire-btn">Hire me!</a>
+            </nav>
+        </header>
 
-<div class="icons">
-<svg fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-<svg fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 1 0-8 11 6 6 0 0 0 8-11z"/><path d="M12 8v4l3 3"/></svg>
-<svg fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>
-<svg fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 18a4 4 0 0 0-8 0"/><circle cx="12" cy="11" r="3"/><circle cx="12" cy="12" r="10"/></svg>
-</div>
-</div>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>I AM D'AMOUR</h1>
+                <h2>Web developer +UX Designer</h2>
+                <p>I am a versatile professional with expertise in web design, radio management, and team collaboration. I excel at breaking down complex user experience problems to create innovative, integrity-focused solutions that connect billions of people worldwide.</p>
+                <div class="hero-actions">
+                    <a href="#" class="download-btn">Download CV ↓</a>
+                    <div class="social-links">
+                        <a href="#">f</a>
+                        <a href="#">in</a>
+                        <a href="#">⚽</a>
+                        <a href="#">G</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-frame">
+                    <img src="damour.jpg" alt="D'Amour - Web Developer">
+                </div>
+            </div>
+        </section>
 
-<div class="frame"><img src="damour.jpg"></div>
-</main>
+        <!-- STATS -->
+        <section class="stats">
+            <div class="stat-item"><div class="stat-number">4</div><div class="stat-label">Years of<br>Experience</div></div>
+            <div class="stat-item"><div class="stat-number">40</div><div class="stat-label">Completed<br>Projects</div></div>
+            <div class="stat-item"><div class="stat-number">1.4K</div><div class="stat-label">Happy<br>clients</div></div>
+            <div class="stat-item"><div class="stat-number">12</div><div class="stat-label">Proposals<br>made</div></div>
+        </section>
 
-<div class="stats">
-<div><h2>4</h2><p>Years<br>Experience</p></div>
-<div><h2>40</h2><p>Completed<br>Projects</p></div>
-<div><h2>1.4K</h2><p>Happy<br>Clients</p></div>
-<div><h2>12</h2><p>Proposals<br>Made</p></div>
-</div>
+        <!-- CTA -->
+        <div class="cta-section">
+            <a href="#" class="get-started-btn">Get started</a>
+        </div>
 
-<footer>© 2025 Nzi. D'Amour</footer>
+        <!-- ✅ SECTIONS ADDED BELOW (NO OTHER CODE CHANGED) -->
+<section id="services" class="services-section">
+  <div class="container">
+    <h2 class="section-title">My Quality Services</h2>
+    <p class="section-description">We put your ideas and thus your wishes in the form of a unique web project that inspires you and you customers.</p>
+
+    <div class="services-container">
+      <div class="service-item">
+        <div class="service-info">
+          <div class="service-number" style="color: #8b5cf6;">01</div>
+          <h3 class="service-title">Web Development</h3>
+        </div>
+        <p class="service-description">Conducting qualitative and quantitative research to understand user needs, behaviors, and pain points. Utilizing methods...</p>
+      </div>
+      <div class="service-item">
+        <div class="service-info">
+          <div class="service-number" style="color: #8b5cf6;">02</div>
+          <h3 class="service-title">UI/UX Design</h3>
+        </div>
+        <p class="service-description">Conducting qualitative and quantitative research to understand user needs, behaviors, and pain points. Utilizing methods...</p>
+      </div>
+      <div class="service-item">
+        <div class="service-info">
+          <div class="service-number" style="color: #8b5cf6;">03</div>
+          <h3 class="service-title">Content Writing</h3>
+        </div>
+        <p class="service-description">Conducting qualitative and quantitative research to understand user needs, behaviors, and pain points. Utilizing methods...</p>
+      </div>
+      <div class="service-item">
+        <div class="service-info">
+          <div class="service-number" style="color: #8b5cf6;">04</div>
+          <h3 class="service-title">Digital Marketing</h3>
+        </div>
+        <p class="service-description">Conducting qualitative and quantitative research to understand user needs, behaviors, and pain points. Utilizing methods...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="recent-works-section">
+  <div class="container">
+    <h2 class="section-title">My Recent Works</h2>
+    <div class="nav-tabs">
+      <a href="#" class="tab-link active">All</a>
+      <a href="#" class="tab-link">Apps</a>
+      <a href="#" class="tab-link">Branding</a>
+      <a href="#" class="tab-link">Content</a>
+      <a href="#" class="tab-link">UX/UI</a>
+    </div>
+
+    <div class="works-container">
+      <div class="work-item">
+        <div class="work-image">
+          <img src="bigger-bolder-better.jpg" alt="Bigger, Bolder and Better">
+        </div>
+        <div class="work-info">
+          <h3 class="work-title">Bigger, Bolder and Better</h3>
+          <div class="work-details">
+            <div class="detail">Branding</div>
+            <div class="detail">UI/UX</div>
+            <div class="detail">Photography</div>
+            <div class="detail">Animation</div>
+          </div>
+          <div class="work-description">
+            <p>We're from Poland, we passioned with the space & create</p>
+          </div>
+        </div>
+      </div>
+      <div class="work-item">
+        <div class="work-image">
+          <img src="sebastian-camargo.jpg" alt="Sebastian Camargo">
+        </div>
+        <div class="work-info">
+          <h3 class="work-title">Sebastian Camargo</h3>
+          <div class="work-details">
+            <div class="detail">Illustration</div>
+            <div class="detail">SEO/Marketing</div>
+          </div>
+          <div class="work-description">
+            <p>SC</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        <section class="resume-section">
+  <div class="container">
+    <div class="experience-section">
+      <h2 class="section-title">My Experience</h2>
+      <div class="experience-items">
+        <div class="experience-item">
+          <div class="experience-title">LEAD DEVELOPER</div>
+          <div class="experience-company">Blockdots, London</div>
+          <div class="experience-duration">2022 - Present</div>
+        </div>
+        <div class="experience-item">
+          <div class="experience-title">FULL STACK WEB DEVELOPER</div>
+          <div class="experience-company">Parsons, The New School</div>
+          <div class="experience-duration">2021 - 2022</div>
+        </div>
+        <div class="experience-item">
+          <div class="experience-title">UI DESIGNER</div>
+          <div class="experience-company">House of Life, Leeds</div>
+          <div class="experience-duration">2020 - 2021</div>
+        </div>
+        <div class="experience-item">
+          <div class="experience-title">JUNIOR GRAPHICS DESIGNER</div>
+          <div class="experience-company">Theme Junction, Bursa</div>
+          <div class="experience-duration">2018 - 2020</div>
+        </div>
+      </div>
+    </div>
+    <div class="education-section">
+      <h2 class="section-title">My Education</h2>
+      <div class="education-items">
+        <div class="education-item">
+          <div class="education-title">PROGRAMMING COURSE</div>
+          <div class="education-institution">Harverd University</div>
+          <div class="education-duration">2020 - 2023</div>
+        </div>
+        <div class="education-item">
+          <div class="education-title">GRAPHIC DESIGN COURSE</div>
+          <div class="education-institution">University of Denmark</div>
+          <div class="education-duration">2016 - 2020</div>
+        </div>
+        <div class="education-item">
+          <div class="education-title">WEB DESIGN COURSE</div>
+          <div class="education-institution">University of California</div>
+          <div class="education-duration">2012 - 2015</div>
+        </div>
+        <div class="education-item">
+          <div class="education-title">DESIGN & TECHNOLOGY</div>
+          <div class="education-institution">Parsons, The New School</div>
+          <div class="education-duration">2010 - 2011</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <section class="skills-section">
+  <div class="container">
+    <h2 class="section-title">My Skills</h2>
+    <p class="section-description">We put your ideas and thus your wishes in the form of a unique web project that inspires you and you customers.</p>
+    <div class="skills-container">
+      <div class="skill-item">
+        <div class="skill-icon">
+          <img src="figma.png" alt="Figma">
+        </div>
+        <div class="skill-name">Figma</div>
+        <div class="skill-proficiency">92%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">
+          <img src="sketch.png" alt="Sketch">
+        </div>
+        <div class="skill-name">Sketch</div>
+        <div class="skill-proficiency">80%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">
+          <img src="xd.png" alt="XD">
+        </div>
+        <div class="skill-name">XD</div>
+        <div class="skill-proficiency">85%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">
+          <img src="wordpress.png" alt="WordPress">
+        </div>
+        <div class="skill-name">WordPress</div>
+        <div class="skill-proficiency">99%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">
+          <img src="react.png" alt="React">
+        </div>
+        <div class="skill-name">React</div>
+        <div class="skill-proficiency">89%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">
+          <img src="javascript.png" alt="JavaScript">
+        </div>
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-proficiency">93%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+     <section class="blogs-section">
+  <div class="container">
+    <h2 class="section-title">Recent Blogs</h2>
+    <p class="section-description">We put your ideas and thus your wishes in the form of a unique web project that inspires you and you customers.</p>
+    <div class="blogs-container">
+      <div class="blog-item">
+        <div class="blog-image">
+          <img src="saas-blog.jpg" alt="The Role Of Technology In Modern...">
+        </div>
+        <div class="blog-info">
+          <div class="blog-category">SAAS</div>
+          <div class="blog-date">May 10, 2024</div>
+          <div class="blog-comments">No Comments</div>
+          <h3 class="blog-title">The Role Of Technology In Modern...</h3>
+        </div>
+      </div>
+      <div class="blog-item">
+        <div class="blog-image">
+          <img src="design-blog.jpg" alt="The Services Provide For Design">
+        </div>
+        <div class="blog-info">
+          <div class="blog-category">DESIGN</div>
+          <div class="blog-date">May 10, 2024</div>
+          <div class="blog-comments">No Comments</div>
+          <h3 class="blog-title">The Services Provide For Design</h3>
+        </div>
+      </div>
+      <div class="blog-item">
+        <div class="blog-image">
+          <img src="technology-blog.jpg" alt="Digital Marketo To Their New Office.">
+        </div>
+        <div class="blog-info">
+          <div class="blog-category">TECHNOLOGY</div>
+          <div class="blog-date">May 10, 2024</div>
+          <div class="blog-comments">No Comments</div>
+          <h3 class="blog-title">Digital Marketo To Their New Office.</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="contact-section">
+  <div class="container">
+    <h2 class="section-title">Let's work together!</h2>
+    <p class="section-description">I design and code beautifully simple things and i love what i do. Just simple like that!</p>
+    <form class="contact-form">
+      <div class="form-row">
+        <input type="text" class="form-input" placeholder="First name" />
+        <input type="text" class="form-input" placeholder="Last name" />
+      </div>
+      <div class="form-row">
+        <input type="email" class="form-input" placeholder="Email address" />
+        <input type="tel" class="form-input" placeholder="Phone number" />
+      </div>
+      <div class="form-row">
+        <select class="form-select">
+          <option value="" disabled selected>Please choose an option</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <textarea class="form-textarea" placeholder="Message"></textarea>
+      </div>
+      <div class="form-row">
+        <button type="submit" class="form-submit">Send Message</button>
+      </div>
+    </form>
+    <div class="contact-info">
+      <div class="info-item">
+        <div class="info-icon">
+          <img src="phone.png" alt="Phone" />
+        </div>
+        <div class="info-value">+01 123 654 8096</div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <img src="email.png" alt="Email" />
+        </div>
+        <div class="info-value">gerolddesign@mail.com</div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <img src="location.png" alt="Address" />
+        </div>
+        <div class="info-value">Warne Park Street Pine, FL 33157, New York</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </div>
 </body>
 </html>
-
-
