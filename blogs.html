@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D'Amour Portfolio</title>
+
+<style>
+/* -------------------- GLOBAL STYLES -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0a1f;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* -------------------- NAVBAR -------------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    background: rgba(10, 10, 31, 0.92);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    backdrop-filter: blur(10px);
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #7d4cdb;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* -------------------- HERO SECTION -------------------- */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.hero-text h2 {
+    font-size: 48px;
+}
+
+.hero-text span {
+    color: #7d4cdb;
+}
+
+.hero-image img {
+    width: 380px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid #7d4cdb;
+}
+
+/* -------------------- ABOUT -------------------- */
+.about {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.about img {
+    width: 300px;
+    border-radius: 15px;
+    border: 3px solid #7d4cdb;
+}
+
+.about-text p {
+    font-size: 18px;
+}
+
+/* -------------------- SKILLS -------------------- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.skill-item {
+    background: #141433;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    border-left: 5px solid #7d4cdb;
+    transition: .3s;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+/* -------------------- PORTFOLIO -------------------- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.portfolio-card {
+    background: #141433;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    border-left: 5px solid #7d4cdb;
+    transition: .3s;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-6px);
+}
+
+.portfolio-card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* -------------------- BLOG SECTION -------------------- */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.blog-card {
+    background: #141433;
+    border-radius: 15px;
+    padding: 18px;
+    border-left: 5px solid #7d4cdb;
+    transition: .3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+}
+
+.blog-card img {
+    width: 100%;
+    border-radius: 12px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* -------------------- CONTACT -------------------- */
+.contact {
+    background: #141433;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 18px;
+}
+
+/* -------------------- FOOTER -------------------- */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 900px) {
+
+    nav {
+        display: none;
+        flex-direction: column;
+        background: #141433;
+        padding: 20px;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        gap: 20px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .hero, .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio-grid, .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="container">
+    <h1>D'Amour</h1>
+
+    <div class="mobile-menu-toggle">&#9776;</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#portfolio">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero container">
+    <div class="hero-text">
+        <h2>Hello, I'm <span>D'Amour</span></h2>
+        <p>Full-Stack Developer | UI/UX Designer | Creative Thinker</p>
+    </div>
+
+    <div class="hero-image">
+        <img src="damour.jpg" alt="D'Amour">
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about container">
+    <img src="damour.jpg" alt="About D'Amour">
+
+    <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+            I am a passionate web developer who builds modern, responsive,
+            creative and user-friendly digital experiences.
+        </p>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="container">
+    <h2>My Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-item">HTML5</div>
+        <div class="skill-item">CSS3</div>
+        <div class="skill-item">Tailwind</div>
+        <div class="skill-item">JavaScript</div>
+        <div class="skill-item">Python</div>
+        <div class="skill-item">PHP</div>
+        <div class="skill-item">UI/UX</div>
+        <div class="skill-item">WordPress</div>
+    </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="container">
+    <h2>Projects</h2>
+    <div class="portfolio-grid">
+        <div class="portfolio-card">
+            <img src="project1.jpg">
+            <h3>Project Title</h3>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="project2.jpg">
+            <h3>Project Title</h3>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="project3.jpg">
+            <h3>Project Title</h3>
+        </div>
+    </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" class="container">
+    <h2>Latest Blogs</h2>
+
+    <div class="blog-grid">
+        <div class="blog-card">
+            <img src="blog1.jpg">
+            <h3>Blog Title</h3>
+            <p>Short description here...</p>
+        </div>
+
+        <div class="blog-card">
+            <img src="blog2.jpg">
+            <h3>Blog Title</h3>
+            <p>Short description here...</p>
+        </div>
+
+        <div class="blog-card">
+            <img src="blog3.jpg">
+            <h3>Blog Title</h3>
+            <p>Short description here...</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact container">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+        <p>Email: damour@example.com</p>
+        <p>Phone: +250 78 000 0000</p>
+    </div>
+</section>
+
+<footer>
+    © 2025 D'Amour — All Rights Reserved
+</footer>
+
+<script>
+const toggle = document.querySelector('.mobile-menu-toggle');
+const nav = document.querySelector('nav');
+
+toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+});
+</script>
+
+</body>
+</html>

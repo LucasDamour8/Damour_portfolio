@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Details - D'Amour Nzimana</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
+</head>
+
+<body>
+    <!-- STICKY HEADER -->
+    <header id="home" class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">D</div>
+                <span>nzimanadamour@gmail.com</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html#home" onclick="closeMenu()">Home</a>
+                <a href="index.html#services" onclick="closeMenu()">Services</a>
+                <a href="index.html#works" onclick="closeMenu()">Works</a>
+                <a href="index.html#resume" onclick="closeMenu()">Resume</a>
+                <a href="index.html#skills" onclick="closeMenu()">Skills</a>
+                <a href="index.html#blogs" onclick="closeMenu()">Blogs</a>
+                <a href="index.html#contact" onclick="closeMenu()">Contact</a>
+                <a href="index.html#contact" class="hire-btn" onclick="closeMenu()">Hire me!</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html#blogs">Back</a>
+                <span>›</span>
+                <span>Blog Details</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG DETAILS -->
+    <section class="blog-details-section">
+        <div class="container">
+            <div class="blog-layout">
+                <!-- LEFT SIDE - BLOG CONTENT -->
+                <div class="blog-content-area">
+                    <h1 class="page-title">Blog Details</h1>
+                    
+                    <div class="blog-post">
+                        <div class="blog-featured-image">
+                            <img src="damour.jpg" alt="Birthday Celebration">
+                        </div>
+
+                        <div class="blog-post-meta">
+                            <span class="post-author">By D'amour</span>
+                            <span class="post-date">August 23, 2024</span>
+                            <span class="post-comments">90 Comments</span>
+                        </div>
+
+                        <h2 class="blog-post-title">Celebrating My Birthday Party with Friends: Insights from My Competency Partner</h2>
+
+                        <div class="blog-post-content">
+                            <p>This year, my birthday party was a memorable event filled with laughter, joy, and valuable insights shared with my friends. As I celebrated this special day, I had the pleasure of inviting my competency partner, who brought a unique perspective to the festivities. Together, we engaged in meaningful discussions about personal growth, team collaboration, and the importance of celebrating milestones in both our personal and professional lives.</p>
+
+                            <p>The atmosphere was vibrant, with decorations that reflected our shared interests. We enjoyed delicious food and drinks, which served as a backdrop for deeper conversations. My partner highlighted the significance of celebrating milestones, not just for personal reflection but also for fostering connections with those who support us along the way.</p>
+
+                            <h3>Key Takeaways from the Celebration</h3>
+                            <ul>
+                                <li>The importance of surrounding yourself with positive influences</li>
+                                <li>How collaboration enhances both personal and professional growth</li>
+                                <li>Creating meaningful connections through shared experiences</li>
+                                <li>The value of taking time to celebrate achievements</li>
+                            </ul>
+
+                            <p>As we reflected on the past year, we discussed how each of us has grown in our respective fields. My competency partner shared insights on effective teamwork and the role of communication in achieving common goals. This conversation reminded me that birthdays are not just about getting older; they are opportunities to acknowledge our journeys and the people who have been part of them.</p>
+
+                            <blockquote>
+                                "Celebrating milestones with friends and partners creates lasting memories and strengthens the bonds that help us succeed in all areas of life."
+                            </blockquote>
+
+                            <p>Overall, this birthday party was more than just a celebration; it was a gathering of minds and hearts, where we shared stories, laughter, and valuable lessons. I look forward to many more celebrations like this, where we can continue to inspire and support each other in our endeavors.</p>
+                        </div>
+
+                        <!-- COMMENT FORM -->
+                        <div class="comment-form-section">
+                            <h3>Leave a Comment</h3>
+                            <form class="comment-form" id="commentForm">
+                                <div class="form-row-inline">
+                                    <input type="text" class="form-input" name="name" placeholder="Your Name" required />
+                                    <input type="email" class="form-input" name="email" placeholder="Your Email" required />
+                                </div>
+                                <div class="form-row">
+                                    <input type="url" class="form-input" name="website" placeholder="Website here.." />
+                                </div>
+                                <div class="form-row">
+                                    <textarea class="form-textarea" name="comment" placeholder="Message ....." required></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="saveInfo" />
+                                        Save my name, email, and website in this browser for the next time I comment.
+                                    </label>
+                                </div>
+                                <div class="form-row">
+                                    <button type="submit" class="form-submit">Post Comment</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE - SIDEBAR -->
+                <aside class="blog-sidebar">
+                    <!-- SEARCH BOX -->
+                    <div class="sidebar-widget search-widget">
+                        <input type="text" class="search-input" placeholder="Search..." />
+                        <button class="search-btn">🔍</button>
+                    </div>
+
+                    <!-- CATEGORIES -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">CATEGORIES</h3>
+                        <ul class="category-list">
+                            <li><a href="#">Analysis <span>(1)</span></a></li>
+                            <li><a href="#">Design <span>(2)</span></a></li>
+                            <li><a href="#">Development <span>(3)</span></a></li>
+                            <li><a href="#">Portfolio <span>(4)</span></a></li>
+                            <li><a href="#">SAAS <span>(3)</span></a></li>
+                            <li><a href="#">Technology <span>(5)</span></a></li>
+                            <li><a href="#">Trending <span>(2)</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- RECENT POST -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">RECENT POST</h3>
+                        <div class="recent-posts">
+                            <div class="recent-post-item">
+                                <div class="recent-post-image">
+                                    <img src="damour.jpg" alt="Recent Post">
+                                </div>
+                                <div class="recent-post-info">
+                                    <span class="recent-post-date">May 2024</span>
+                                    <span class="recent-post-comments">(0)</span>
+                                    <h4 class="recent-post-title">Want To Upgrade Your Brain? Stop...</h4>
+                                </div>
+                            </div>
+                            <div class="recent-post-item">
+                                <div class="recent-post-image">
+                                    <img src="damour.jpg" alt="Recent Post">
+                                </div>
+                                <div class="recent-post-info">
+                                    <span class="recent-post-date">May 2024</span>
+                                    <span class="recent-post-comments">(0)</span>
+                                    <h4 class="recent-post-title">The Role of Technology in Modern...</h4>
+                                </div>
+                            </div>
+                            <div class="recent-post-item">
+                                <div class="recent-post-image">
+                                    <img src="damour.jpg" alt="Recent Post">
+                                </div>
+                                <div class="recent-post-info">
+                                    <span class="recent-post-date">May 2024</span>
+                                    <span class="recent-post-comments">(0)</span>
+                                    <h4 class="recent-post-title">Digital Markets to Their New Office.</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- POPULAR TAGS -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">POPULAR TAG</h3>
+                        <div class="tag-cloud">
+                            <a href="#" class="tag">Analysis</a>
+                            <a href="#" class="tag">Business</a>
+                            <a href="#" class="tag">Design</a>
+                            <a href="#" class="tag">Development</a>
+                            <a href="#" class="tag">Strategy</a>
+                            <a href="#" class="tag">Technology</a>
+                            <a href="#" class="tag">Tips</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
