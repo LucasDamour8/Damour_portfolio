@@ -3,31 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Damour - portifolio </title>
+    <title>D'Amour Nzimana - Web Developer + UX Designer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- STICKY HEADER -->
-    <header id="home" class="main-header">
-        <div class="header-container">
-            <div class="logo">
-                <div class="logo-icon">D</div>
-                <span>nzimanadamour@gmail.com</span>
-            </div>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-            <nav class="main-nav" id="mainNav">
-                <a href="index.html" onclick="closeMenu()">Home</a>
-                <a href="#services" onclick="closeMenu()">Services</a>
-                <a href="#works" onclick="closeMenu()">Works</a>
-                <a href="#resume" onclick="closeMenu()">Resume</a>
-                <a href="#skills" onclick="closeMenu()">Skills</a>
-                <a href="#blogs" onclick="closeMenu()">Blogs</a>
-                <a href="#contact" onclick="closeMenu()">Contact</a>
-                <a href="#contact" class="hire-btn" onclick="closeMenu()">Hire me!</a>
-            </nav>
+<!-- STICKY HEADER -->
+<header id="home" class="main-header">
+    <div class="header-container">
+        <div class="logo">
+            <div class="logo-icon">D</div>
+            <span class="logo-text">nzimanadamour@gmail.com</span>
         </div>
-    </header>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <nav class="main-nav" id="mainNav">
+            <a href="index.html" onclick="closeMenu()">Home</a>
+            <a href="#services" onclick="closeMenu()">Services</a>
+            <a href="#works" onclick="closeMenu()">Works</a>
+            <a href="#resume" onclick="closeMenu()">Resume</a>
+            <a href="#skills" onclick="closeMenu()">Skills</a>
+            <a href="#blogs" onclick="closeMenu()">Blogs</a>
+            <a href="#contact" onclick="closeMenu()">Contact</a>
+            <a href="#contact" class="hire-btn" onclick="closeMenu()">Hire me!</a>
+        </nav>
+    </div>
+</header>
 
     <div class="container main-content">
         <!-- HERO -->
@@ -42,10 +46,10 @@
 </a>
 
                     <div class="social-links">
-                        <a href="https://instagram.com/lucasdamour8" target="_blank" title="Facebook">IG</a>
-                        <a href="https://linkedin.com/lucasdamour8" target="_blank" title="LinkedIn">in</a>
+                        <a href="https://instagram.com/lucasdamour8" target="_blank" title="Facebook">F</a>
+                        <a href="https://linkedin.com/nzisengerimana1" target="_blank" title="LinkedIn">in</a>
                         <a href="https://twitter.com/nzisengerimana1" target="_blank" title="Twitter">X</a>
-                        <a href="https://github.com/LucasDamour8/Damour_portfolio" target="_blank" title="GitHub">G</a>
+                        <a href="https://github.com/LucasDamour8" target="_blank" title="GitHub">G</a>
                     </div>
                 </div>
             </div>
@@ -281,7 +285,6 @@
     </section>
 
     <!-- BLOGS SECTION -->
-    <!-- BLOGS SECTION -->
 <section id="blogs" class="blogs-section">
     <div class="container">
         <h2 class="section-title">Recent Blogs</h2>
@@ -332,6 +335,7 @@
         </div>
     </div>
 </section>
+
     <!-- CONTACT SECTION -->
     <section id="contact" class="contact-section">
         <div class="container">
@@ -384,8 +388,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
