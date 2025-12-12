@@ -1,12 +1,24 @@
 // Mobile Menu Toggle
 function toggleMenu() {
     const nav = document.getElementById('mainNav');
+    const body = document.body;
+    
     nav.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    if (nav.classList.contains('active')) {
+        body.style.overflow = 'hidden';
+    } else {
+        body.style.overflow = 'auto';
+    }
 }
 
 function closeMenu() {
     const nav = document.getElementById('mainNav');
+    const body = document.body;
+    
     nav.classList.remove('active');
+    body.style.overflow = 'auto';
 }
 
 // Smooth scrolling for navigation links
@@ -95,11 +107,13 @@ tabLinks.forEach(tab => {
 document.addEventListener('click', function(e) {
     const nav = document.getElementById('mainNav');
     const menuToggle = document.querySelector('.menu-toggle');
+    const body = document.body;
     
     if (nav.classList.contains('active') && 
         !nav.contains(e.target) && 
         !menuToggle.contains(e.target)) {
         nav.classList.remove('active');
+        body.style.overflow = 'auto';
     }
 });
 
@@ -122,6 +136,23 @@ window.addEventListener('scroll', function() {
         link.classList.remove('active');
         if (link.getAttribute('href') === '#' + current) {
             link.classList.add('active');
+        }
+    });
+});
+
+// Prevent menu links from breaking on mobile
+document.querySelectorAll('.main-nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        // Only prevent default for anchor links, not external links
+        if (this.getAttribute('href').startsWith('#')) {
+            const nav = document.getElementById('mainNav');
+            const body = document.body;
+            
+            // Close menu after clicking a link
+            setTimeout(() => {
+                nav.classList.remove('active');
+                body.style.overflow = 'auto';
+            }, 300);
         }
     });
 });
